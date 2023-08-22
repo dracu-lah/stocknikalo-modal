@@ -11,10 +11,19 @@ const ItemRow = ({ items }) => {
     <div className="flex flex-col ">
       <div className="flex justify-around items-center  m-2 gap-x-4">
         {items.map((item, key) => {
-          return <Item key={key} item={item} setIsHidden={setIsHidden} />;
+          return (
+            <Item
+              key={key}
+              item={item}
+              onClick={() => {
+                setIsHidden((preVisibility) => !preVisibility);
+                console.log("item:", item);
+              }}
+            />
+          );
         })}
       </div>
-      <Modal className="bg-gray-700 p-10  m-2" item={'2'} hidden={isHidden} />
+      <Modal className="bg-gray-700 p-10  m-2" item={"2"} hidden={isHidden} />
     </div>
   );
 };

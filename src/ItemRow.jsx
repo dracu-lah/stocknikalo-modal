@@ -18,7 +18,6 @@ const ItemRow = ({ items }) => {
               item={item}
               onClick={() => {
                 setIsHidden((preVisibility) => !preVisibility);
-                console.log("item:", item);
                 setItemData(item);
               }}
             />

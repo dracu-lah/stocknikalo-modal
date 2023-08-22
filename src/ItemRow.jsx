@@ -7,6 +7,7 @@ const ItemRow = ({ items }) => {
   const [isHidden, setIsHidden] = useState(true);
 
   console.log("isHidden:", isHidden);
+  console.log("itemData:", itemData);
   return (
     <div className="flex flex-col ">
       <div className="flex justify-around items-center  m-2 gap-x-4">
@@ -18,12 +19,17 @@ const ItemRow = ({ items }) => {
               onClick={() => {
                 setIsHidden((preVisibility) => !preVisibility);
                 console.log("item:", item);
+                setItemData(item);
               }}
             />
           );
         })}
       </div>
-      <Modal className="bg-gray-700 p-10  m-2" item={"2"} hidden={isHidden} />
+      <Modal
+        className="bg-gray-700 p-10  m-2"
+        item={itemData}
+        hidden={isHidden}
+      />
     </div>
   );
 };

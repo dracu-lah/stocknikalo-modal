@@ -3,18 +3,39 @@ import "./App.css";
 import ItemRow from "./ItemRow";
 function App() {
   const [isExtended, setIsExtended] = useState(false);
-  const items1 = ["item1", "item2", "item3", "item4"];
-  const items2 = ["item5", "item6", "item7", "item8"];
-  const items3 = ["item9", "item10", "item11", "item12"];
-  const items4 = ["item13", "item14", "item15", "item16"];
-  const finalItems = [items1, items2, items3, items4];
-  console.log("items3", finalItems);
+  const allItems = [
+    "item1",
+    "item2",
+    "item3",
+    "item4",
+    "item5",
+    "item6",
+    "item7",
+    "item8",
+    "item9",
+    "item10",
+    "item11",
+    "item12",
+    "item13",
+    "item14",
+    "item15",
+    "item16",
+  ];
+  const batchSize = 4; // Number of allItems in each sub-array
+  const splitArrays = [];
+
+  for (let i = 0; i < allItems.length; i += batchSize) {
+    splitArrays.push(allItems.slice(i, i + batchSize));
+  }
+
+  console.log("Split Arrays:", splitArrays);
+  console.log("allItems", allItems);
   console.log("isExtended : ", isExtended);
   return (
     <div>
       {/* <h1 className="fixed top-0 p-4">Stock nikalo Modal</h1> */}
       <div>
-        {finalItems.map((items, key) => (
+        {splitArrays.map((items, key) => (
           <ItemRow key={key} items={items} />
         ))}
       </div>

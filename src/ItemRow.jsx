@@ -5,9 +5,9 @@ import Item from "./Item";
 const ItemRow = ({ items }) => {
   const [itemData, setItemData] = useState();
   const [isHidden, setIsHidden] = useState(true);
-
   console.log("isHidden:", isHidden);
   console.log("itemData:", itemData);
+  console.log("rowItems", items);
   return (
     <div className="flex flex-col ">
       <div className="flex justify-around items-center  m-2 gap-x-4">

@@ -3,7 +3,7 @@ import Modal from "./Modal";
 import Item from "./Item";
 
 const ItemRow = ({ items }) => {
-  const [itemData, setItemData] = useState();
+  const [itemData, setItemData] = useState("");
   const [isHidden, setIsHidden] = useState(true);
   console.log("isHidden:", isHidden);
   console.log("itemData:", itemData);
@@ -17,7 +17,9 @@ const ItemRow = ({ items }) => {
               key={key}
               item={item}
               onClick={() => {
-                setIsHidden((preVisibility) => !preVisibility);
+                if (item === itemData) {
+                  setIsHidden((preVisibility) => !preVisibility);
+                }
                 setItemData(item);
               }}
             />

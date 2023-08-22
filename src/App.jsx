@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import ItemRow from "./ItemRow";
 function App() {
-  const [isExtended, setIsExtended] = useState(false);
+  const [row, setRow] = useState(null);
   const allItems = [
     "item1",
     "item2",
@@ -28,15 +28,23 @@ function App() {
     splitArrays.push(allItems.slice(i, i + batchSize));
   }
 
-  console.log("Split Arrays:", splitArrays);
-  console.log("allItems", allItems);
-  console.log("isExtended : ", isExtended);
+  // console.log("Split Arrays:", splitArrays);
+  // console.log("allItems", allItems);
+  console.log("Row : ", row);
   return (
     <div>
       {/* <h1 className="fixed top-0 p-4">Stock nikalo Modal</h1> */}
       <div>
         {splitArrays.map((items, key) => (
-          <ItemRow key={key} items={items} />
+          <ItemRow
+            key={key}
+            items={items}
+            rowState={row}
+            row={key}
+            onClick={() => {
+              setRow(key);
+            }}
+          />
         ))}
       </div>
     </div>

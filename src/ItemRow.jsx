@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "./Modal";
 import Item from "./Item";
 
-const ItemRow = ({ items, row, rowState, ...props }) => {
+const ItemRow = ({ items, currentRow, previousRow, ...props }) => {
   const [itemData, setItemData] = useState("");
   const [isHidden, setIsHidden] = useState(true);
   // console.log("isHidden:", isHidden);
@@ -17,9 +17,9 @@ const ItemRow = ({ items, row, rowState, ...props }) => {
               key={key}
               item={item}
               onClick={() => {
-                if (row !== rowState) {
-                  console.log("row", row);
-                  console.log("rowState", rowState);
+                if (currentRow !== previousRow) {
+                  console.log("currentRow", currentRow);
+                  console.log("previousRow", previousRow);
                 }
                 if (item === itemData) {
                   setIsHidden((preVisibility) => !preVisibility);

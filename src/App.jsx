@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import ItemRow from "./ItemRow";
 function App() {
-  const [row, setRow] = useState(null);
+  const [previousRow, setPreviousRow] = useState(null);
   const allItems = [
     "item1",
     "item2",
@@ -30,7 +30,7 @@ function App() {
 
   // console.log("Split Arrays:", splitArrays);
   // console.log("allItems", allItems);
-  console.log("Row : ", row);
+  // console.log("Row : ", row);
   return (
     <div>
       {/* <h1 className="fixed top-0 p-4">Stock nikalo Modal</h1> */}
@@ -39,10 +39,10 @@ function App() {
           <ItemRow
             key={key}
             items={items}
-            rowState={row}
-            row={key}
+            previousRow={previousRow}
+            currentRow={key}
             onClick={() => {
-              setRow(key);
+              setPreviousRow(key);
             }}
           />
         ))}
